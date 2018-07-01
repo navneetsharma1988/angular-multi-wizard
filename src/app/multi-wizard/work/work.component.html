@@ -1,0 +1,26 @@
+<div class="row">
+  <div class="col-xs-12">
+    <h3>What do you do?</h3>
+  </div>
+</div>
+<br>
+<br>
+<div class="row">
+    <div class="col-xs-12 col-md-10 col-sm-8 col-md-offset-1 col-sm-offset-2">
+      <form #f="ngForm" (ngSubmit)="goToNext(f)">
+        <div class="radio" *ngFor="let workEl of workList">
+          <label>
+            <input 
+              type="radio"
+              name="work"
+              [ngModel]="work" 
+              [value]="workEl"
+              required>
+              {{workEl}}
+          </label>
+        </div>
+        <button class="btn btn-default" type="button" (click)="goToPrevious()">Previous</button>
+        <button class="btn btn-primary" type="submit" [disabled]="!f.valid">Next</button>
+      </form>
+    </div>
+</div>
